@@ -1,6 +1,10 @@
 <script lang="ts" setup>
+import { useStore } from '../store/web3store';
+
+const { address } = useStore()
 </script>
 
 <template>
-    Home
+    <h1>Home</h1>
+    <p>{{ address }}</p>
 </template>
