@@ -6,6 +6,7 @@ export interface Item {
   chain: number;
   exchange: string;
   il: number;
+  tvl: number;
 }
 
 export interface Header {

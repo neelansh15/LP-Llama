@@ -21,6 +21,10 @@ const headers: Header[] = [
         key: 'chain'
     },
     {
+        label: 'Total Value Locked',
+        key: 'tvl'
+    },
+    {
         label: 'APY',
         key: 'apy'
     },
@@ -38,6 +42,7 @@ const items = [
         chain: 137,
         apy: 10,
         il: 10,
+        tvl: 100_000,
         exchange: 'SushiSwap',
     },
     {
@@ -47,6 +52,7 @@ const items = [
         chain: 137,
         apy: 23,
         il: 8,
+        tvl: 100_120,
         exchange: 'SushiSwap',
     },
     {
@@ -56,6 +62,7 @@ const items = [
         chain: 56,
         apy: 333,
         il: 2,
+        tvl: 9_149,
         exchange: 'PancakeSwap',
     },
 ]

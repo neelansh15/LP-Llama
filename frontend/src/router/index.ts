@@ -6,7 +6,7 @@ const routes = [
     component: () => import("../pages/index.vue"),
   },
   {
-    path: "/:chainId/pool/:lpAddress",
+    path: "/:chainId/:exchange/:lpAddress",
     component: () => import("../pages/_lpAddress.vue"),
   },
   {
@@ -14,7 +14,7 @@ const routes = [
     component: () => import("../pages/exchange/index.vue"),
   },
   {
-    path: "/:chainId/exchange/:exchange",
+    path: "/:chainId/:exchange",
     component: () => import("../pages/exchange/_exchange.vue"),
   },
 ];
