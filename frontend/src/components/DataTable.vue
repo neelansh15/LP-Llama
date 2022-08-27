@@ -14,7 +14,7 @@ const props = defineProps<{
 <template>
     <table class="w-full bg-dark-700 p-5 rounded">
         <tr>
-            <th v-for="header in headers" :key="header.label" class="text-gray-300 text-xs p-3">{{
+            <th v-for="header in headers" :key="header.label" class="text-gray-300 text-xs p-3 text-left">{{
                     header.label.toUpperCase()
             }}</th>
         </tr>
@@ -33,6 +33,7 @@ const props = defineProps<{
                 <SafeImage :src="getIconUrl(chainTokens[item.chain])" />
             </td>
             <td>{{ item.apy }}%</td>
+            <td>{{ item.il }}%</td>
         </tr>
     </table>
 </template>

@@ -15,6 +15,10 @@ const headers: Header[] = [
         label: 'APY',
         key: 'apy'
     },
+    {
+        label: 'IL',
+        key: 'il'
+    },
 ]
 
 const items = [
@@ -24,7 +28,8 @@ const items = [
         token1: 'USDT',
         chain: 137,
         apy: 10,
-        exchange: 'SushiSwap'
+        il: 10,
+        exchange: 'SushiSwap',
     },
     {
         name: 'WETH-USDC',
@@ -32,7 +37,8 @@ const items = [
         token1: 'USDC',
         chain: 137,
         apy: 23,
-        exchange: 'SushiSwap'
+        il: 8,
+        exchange: 'SushiSwap',
     },
     {
         name: 'WETH-USDT',
@@ -40,7 +46,8 @@ const items = [
         token1: 'USDT',
         chain: 56,
         apy: 333,
-        exchange: 'PancakeSwap'
+        il: 2,
+        exchange: 'PancakeSwap',
     },
 ]
 
@@ -75,7 +82,7 @@ const items = [
 
         <!-- Table -->
         <h1 class="mt-6 font-bold text-xl">Top Liquidity Pools / Farms</h1>
-        <DataTable :items="items" :headers="headers" />
+        <DataTable :items="items" :headers="headers" class="mt-3" />
     </div>
 </template>
 

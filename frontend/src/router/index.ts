@@ -5,6 +5,10 @@ const routes = [
     path: "/",
     component: () => import("../pages/index.vue"),
   },
+  {
+    path: "/:chainId/:lpAddress",
+    component: () => import("../pages/_lpAddress.vue"),
+  },
 ];
 
 const router = createRouter({

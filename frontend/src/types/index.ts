@@ -5,6 +5,7 @@ export interface Item {
   apy: number;
   chain: number;
   exchange: string;
+  il: number;
 }
 
 export interface Header {
