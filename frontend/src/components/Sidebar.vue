@@ -8,7 +8,7 @@ const { colors } = useStore()
 <template>
     <!-- bg-gradient-to-b from-primary-600 to-primary-700 -->
     <nav class="flex flex-col justify-between h-full rounded-lg" :style="{
-        background: `linear-gradient(to bottom, ${colors.primary}, ${colors.secondary}), #000`
+        background: `linear-gradient(to bottom, ${colors.primary}, ${colors.secondary}), #000`,
     }">
         <div class="space-y-8">
             <div class="border-b p-5" :style="{
@@ -30,6 +30,13 @@ const { colors } = useStore()
                     <router-link to="/pool/1/0x3041CbD36888bECc7bbCBc0045E3B1f144466f5f">Test</router-link>
                 </li>
             </ul>
+        </div>
+        <div class="h-50 mt-auto" :style="{
+            backgroundImage: 'url(\'/llama.png\')',
+            backgroundSize: '200px',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: '250% 100%'
+        }">
         </div>
         <p class="text-xs text-gray-300 p-5">Team ZKMaxiz &sdot; Unfold Hackathon </p>
     </nav>
