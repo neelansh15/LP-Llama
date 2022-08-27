@@ -26,7 +26,7 @@ async function fetchData() {
 </script>
 
 <template>
-    <div class="p-5 mx-5 mt-8">
+    <div class="p-5 px-10 pt-8 bg-gradient-to-b from-primary-700/30 via-transparent to-transparent">
         <header class="flex justify-between items-center">
             <div class="flex items-center space-x-2.5">
                 <div class="flex -space-x-4">

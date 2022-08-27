@@ -54,23 +54,23 @@ const items = [
 </script>
 
 <template>
-    <div class="p-5 w-full">
+    <div class="p-5 w-full bg-gradient-to-b from-primary-700/30 via-transparent to-transparent">
 
         <!-- Card Collection -->
         <div class="md:(grid grid-cols-5 gap-5) mt-8 w-full">
             <div class="space-y-3 md:(col-span-2)">
                 <div class="info-card">
                     <h2 class="uppercase text-gray-400 text-xs font-bold">Last Indexed At</h2>
-                    <p class="mt-1 text-2xl font-bold text-cyan-400">27th August 2022</p>
+                    <p class="mt-1 text-2xl font-bold">27th August 2022</p>
                 </div>
                 <div class="info-card">
                     <h2 class="uppercase text-gray-400 text-xs font-bold">Total Chains Indexed</h2>
-                    <p class="mt-1 text-2xl font-bold text-pink-400">5</p>
+                    <p class="mt-1 text-2xl font-bold">5</p>
                     <!-- Use chain icons here later -->
                 </div>
                 <div class="info-card">
                     <h2 class="uppercase text-gray-400 text-xs font-bold">Total LPs Indexed</h2>
-                    <p class="mt-1 text-2xl font-bold text-yellow-400">430</p>
+                    <p class="mt-1 text-2xl font-bold">430</p>
                 </div>
             </div>
             <div class="md:(col-span-3) info-card">

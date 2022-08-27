@@ -2,7 +2,8 @@
 </script>
 
 <template>
-    <nav class="flex flex-col justify-between bg-primary-600 h-full">
+    <nav
+        class="flex flex-col justify-between h-full bg-gradient-to-b from-primary-600 to-primary-700 ">
         <div class="space-y-8">
             <div class="border-b border-b-primary-500 p-5">
                 <h1 class="text-xl font-bold">
