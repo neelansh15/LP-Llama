@@ -54,7 +54,7 @@ const items = [
 </script>
 
 <template>
-    <div class="p-5 w-full bg-gradient-to-b from-primary-700/30 via-transparent to-transparent">
+    <div class="p-5 w-full">
 
         <!-- Card Collection -->
         <div class="md:(grid grid-cols-5 gap-5) mt-8 w-full">
@@ -74,7 +74,7 @@ const items = [
                 </div>
             </div>
             <div class="md:(col-span-3) info-card">
-                <h2 class="uppercase text-gray-400 text-xs font-bold">Total Value Value (TVI)</h2>
+                <h2 class="uppercase text-gray-400 text-xs font-bold">Total Value Indexed (TVI)</h2>
                 <p class="mt-1 text-3xl font-bold text-teal-400">$80.92B</p>
                 <!-- Graph here -->
             </div>

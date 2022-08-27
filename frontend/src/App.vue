@@ -5,9 +5,10 @@ import Sidebar from './components/Sidebar.vue';
 </script>
 
 <template>
-  <div class="grid grid-cols-6 min-h-screen w-full text-white bg-dark-700">
-    <Sidebar class="col-span-1" />
-    <router-view class="col-span-5" />
+  <div
+    class="grid grid-cols-10 min-h-screen pb-10 w-full text-white bg-dark-700 bg-gradient-to-b from-primary-700/30 via-transparent to-transparent">
+    <Sidebar class="col-span-2 m-5" />
+    <router-view class="col-span-8" />
   </div>
 </template>
 
