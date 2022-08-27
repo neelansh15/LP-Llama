@@ -7,5 +7,5 @@
 }
 
 .info-card {
-  @apply p-5 border border-dark-300 bg-dark-900 rounded-md;
+  @apply p-5 border border-dark-300 bg-dark-900 rounded-lg;
 }
