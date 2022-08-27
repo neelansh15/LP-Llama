@@ -5,7 +5,7 @@ import Sidebar from './components/Sidebar.vue';
 </script>
 
 <template>
-  <div class="grid grid-cols-6 min-h-screen w-full text-white bg-dark-900">
+  <div class="grid grid-cols-6 min-h-screen w-full text-white bg-dark-700">
     <Sidebar class="col-span-1" />
     <router-view class="col-span-5" />
   </div>

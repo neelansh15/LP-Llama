@@ -4,6 +4,7 @@ import { useRoute } from 'vue-router';
 import { getIconUrl } from '../utils'
 import { explorerUrls } from '../constants'
 import SafeImage from '../components/SafeImage.vue';
+import Chart from '../components/Chart.vue';
 
 const isLoading = ref(true)
 
@@ -26,7 +27,7 @@ async function fetchData() {
 </script>
 
 <template>
-    <div class="p-5 px-10 pt-8 bg-gradient-to-b from-primary-700/30 via-transparent to-transparent">
+    <div class="p-5 px-10 pt-12 bg-gradient-to-b from-primary-700/30 via-transparent to-transparent">
         <header class="flex justify-between items-center">
             <div class="flex items-center space-x-2.5">
                 <div class="flex -space-x-4">
@@ -44,6 +45,7 @@ async function fetchData() {
         </header>
 
         <article class="mt-8">
+            <!-- Cards -->
             <div class="space-y-3 md:(space-y-0 grid grid-cols-4 gap-3)">
                 <div class="info-card">
                     <h2 class="uppercase text-gray-400 text-xs font-bold">Total Value Locked (TVL)</h2>
@@ -68,6 +70,13 @@ async function fetchData() {
                     </div>
 
                     <p class="mt-1 text-2xl font-bold">542,984</p>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="mt-8">
+                <div class="md:(grid grid-cols-2) gap-4">
+                    <Chart title="APY" data="" />
                 </div>
             </div>
         </article>
