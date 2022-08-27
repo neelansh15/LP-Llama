@@ -1,4 +1,5 @@
 export const chainTokens = {
+  1: 'eth',
   137: "matic",
   56: "bnb",
 } as Record<number, string>;

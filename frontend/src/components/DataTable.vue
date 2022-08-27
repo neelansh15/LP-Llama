@@ -22,7 +22,7 @@ const router = useRouter()
             }}</th>
         </tr>
         <tr v-for="item in items" :key="item.name + item.exchange"
-            @click="router.push(`/pool/${item.chain}/0x3041CbD36888bECc7bbCBc0045E3B1f144466f5f`)">
+            @click="router.push(`/${item.chain}/pool/0x3041CbD36888bECc7bbCBc0045E3B1f144466f5f`)">
             <td class="flex space-x-3 items-center">
                 <div class="flex -space-x-4">
                     <SafeImage :src="getIconUrl(item.token0)" class="w-7.5 h-7.5 mt-0.5" />

@@ -51,7 +51,7 @@ function getDominantColor() {
 </script>
 
 <template>
-    <div class="p-5 px-10 pt-12">
+    <div class="p-5 px-10 pt-14">
         <header class="flex justify-between items-center">
             <div class="flex items-center space-x-2.5">
                 <div class="flex -space-x-4">
