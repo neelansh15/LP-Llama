@@ -35,7 +35,7 @@ const { colors } = useStore()
             backgroundImage: 'url(\'/llama.png\')',
             backgroundSize: '200px',
             backgroundRepeat: 'no-repeat',
-            backgroundPosition: '250% 100%'
+            backgroundPosition: '260% 100%'
         }">
         </div>
         <p class="text-xs text-gray-300 p-5">Team ZKMaxiz &sdot; Unfold Hackathon </p>
