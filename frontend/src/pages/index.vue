@@ -86,8 +86,5 @@ const items = [
     </div>
 </template>
 
-<style scoped>
-.info-card {
-    @apply p-5 border border-dark-300 bg-dark-800 rounded;
-}
+<style>
 </style>

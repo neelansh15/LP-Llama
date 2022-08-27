@@ -17,6 +17,9 @@
                 <li>
                     <router-link to="/">Exchange</router-link>
                 </li>
+                <li>
+                    <router-link to="/pool/1/0x3041CbD36888bECc7bbCBc0045E3B1f144466f5f">Test</router-link>
+                </li>
             </ul>
         </div>
         <p class="text-xs text-gray-300 p-5">Team ZKMaxiz &sdot; Unfold Hackathon </p>

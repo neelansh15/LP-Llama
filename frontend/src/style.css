@@ -5,3 +5,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+.info-card {
+  @apply p-5 border border-dark-300 bg-dark-800 rounded;
+}
