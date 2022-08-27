@@ -11,10 +11,17 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+
+import yaml
 from corsheaders.defaults import default_headers
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from yaml import SafeLoader
+
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+with open('secrets.yaml') as f:
+    secrets = yaml.load(f, Loader=SafeLoader)
 
 
 # Quick-start development settings - unsuitable for production
@@ -85,8 +92,18 @@ WSGI_APPLICATION = 'backend_server.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': secrets["DATABASE"]["NAME"],
+        'USER': secrets["DATABASE"]["USER"],
+        'PASSWORD': secrets["DATABASE"]["PASSWORD"],
+        'HOST': secrets["DATABASE"]["HOST"],
+        'PORT': 3306,
+        'OPTIONS': {
+            'sql_mode': 'TRADITIONAL',
+            'charset': 'utf8',
+            'init_command': 'SET character_set_connection=utf8,'
+                            'collation_connection=utf8_bin;'
+        }
     }
 }
 
