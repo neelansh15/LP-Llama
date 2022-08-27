@@ -63,7 +63,7 @@ function getDominantColor() {
                 <div>
                     <h1 class="text-xl font-semibold">{{ data.name }}</h1>
                     <h2 class="text-sm" :style="{
-                        color: colors.primary,
+                        color: colors.tertiary,
                         opacity: 100
                     }">{{ data.exchange }}</h2>
                 </div>
