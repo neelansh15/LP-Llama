@@ -9,8 +9,9 @@ const { colors } = useStore()
 
 <template>
   <!-- bg-gradient-to-b from-primary-700/30 via-transparent to-transparent -->
-  <div class="grid grid-cols-10 min-h-screen pb-10 w-full text-white bg-dark-700 transition-all" :style="{
-    background: `linear-gradient(to bottom, ${colors.primary}80, transparent, transparent), #000`
+  <div class="grid grid-cols-10 min-h-screen pb-10 w-full text-white bg-dark-700 transition" :style="{
+    background: `linear-gradient(to bottom, ${colors.primary}80, transparent, transparent), #000`,
+    transition: 'background-image 4s linear',
   }">
     <Sidebar class="col-span-2 m-5" />
     <router-view class="col-span-8" />

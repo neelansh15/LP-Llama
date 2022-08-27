@@ -42,7 +42,8 @@ function getDominantColor() {
     store.$patch({
         colors: {
             primary: rgbToHex(color[0][0], color[0][1], color[0][2]),
-            secondary: rgbToHex(color[4][0], color[4][1], color[4][2])
+            secondary: rgbToHex(color[4][0], color[4][1], color[4][2]),
+            tertiary: rgbToHex(color[3][0], color[3][1], color[3][2]),
         }
     })
 }
@@ -54,8 +55,8 @@ function getDominantColor() {
         <header class="flex justify-between items-center">
             <div class="flex items-center space-x-2.5">
                 <div class="flex -space-x-4">
-                    <img :src="getIconUrl(data.token0)" @load="getDominantColor" class="hidden w-1 h-1" ref="token0Image"
-                        crossorigin="anonymous" />
+                    <img :src="getIconUrl(data.token0)" @load="getDominantColor" class="hidden w-1 h-1"
+                        ref="token0Image" crossorigin="anonymous" />
                     <SafeImage :src="getIconUrl(data.token0)" class="w-9 h-9 mt-0.5" />
                     <SafeImage :src="getIconUrl(data.token1)" class="w-9 h-9 mt-0.5" />
                 </div>

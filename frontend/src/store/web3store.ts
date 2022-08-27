@@ -5,6 +5,7 @@ export const useStore = defineStore("web3store", {
     colors: {
       primary: "#059669",
       secondary: "#047857",
+      tertiary: "#047857",
     },
   }),
 });
