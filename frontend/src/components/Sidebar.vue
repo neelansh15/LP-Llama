@@ -1,11 +1,19 @@
 <script lang="ts" setup>
+import { useStore } from '../store/web3store';
+
+const { colors } = useStore()
+
 </script>
 
 <template>
-    <nav
-        class="flex flex-col justify-between h-full bg-gradient-to-b from-primary-600 to-primary-700 rounded-lg ">
+    <!-- bg-gradient-to-b from-primary-600 to-primary-700 -->
+    <nav class="flex flex-col justify-between h-full rounded-lg" :style="{
+        background: `linear-gradient(to bottom, ${colors.primary}, ${colors.secondary}), #000`
+    }">
         <div class="space-y-8">
-            <div class="border-b border-b-primary-500 p-5">
+            <div class="border-b p-5" :style="{
+                borderColor: colors.secondary + '49',
+            }">
                 <h1 class="text-xl font-bold">
                     LP Llama
                 </h1>

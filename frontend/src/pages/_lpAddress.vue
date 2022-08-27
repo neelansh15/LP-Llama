@@ -1,10 +1,20 @@
 <script lang="ts" setup>
-import { reactive, ref } from 'vue';
+import { onMounted, reactive, ref } from 'vue';
 import { useRoute } from 'vue-router';
-import { getIconUrl } from '../utils'
+import { getIconUrl, rgbToHex } from '../utils'
 import { explorerUrls } from '../constants'
 import SafeImage from '../components/SafeImage.vue';
 import Chart from '../components/Chart.vue';
+import { useStore } from '../store/web3store';
+
+// @ts-ignore
+import ColorThief from 'colorthief'
+import { storeToRefs } from 'pinia';
+
+const store = useStore()
+const { colors } = storeToRefs(store)
+
+const token0Image = ref(null)
 
 const isLoading = ref(true)
 
@@ -24,6 +34,19 @@ async function fetchData() {
     isLoading.value = false
 }
 
+function getDominantColor() {
+    // Analyze dominant color
+    const colorthief = new ColorThief()
+    const color: [number, number, number][] = colorthief.getPalette(token0Image.value, 5)
+    console.log({ color })
+    store.$patch({
+        colors: {
+            primary: rgbToHex(color[0][0], color[0][1], color[0][2]),
+            secondary: rgbToHex(color[4][0], color[4][1], color[4][2])
+        }
+    })
+}
+
 </script>
 
 <template>
@@ -31,12 +54,17 @@ async function fetchData() {
         <header class="flex justify-between items-center">
             <div class="flex items-center space-x-2.5">
                 <div class="flex -space-x-4">
+                    <img :src="getIconUrl(data.token0)" @load="getDominantColor" class="hidden w-1 h-1" ref="token0Image"
+                        crossorigin="anonymous" />
                     <SafeImage :src="getIconUrl(data.token0)" class="w-9 h-9 mt-0.5" />
                     <SafeImage :src="getIconUrl(data.token1)" class="w-9 h-9 mt-0.5" />
                 </div>
                 <div>
                     <h1 class="text-xl font-semibold">{{ data.name }}</h1>
-                    <h2 class="text-sm text-primary-300">{{ data.exchange }}</h2>
+                    <h2 class="text-sm" :style="{
+                        color: colors.primary,
+                        opacity: 100
+                    }">{{ data.exchange }}</h2>
                 </div>
             </div>
             <div>
@@ -77,6 +105,7 @@ async function fetchData() {
             <div class="mt-8">
                 <div class="md:(grid grid-cols-2) gap-4">
                     <Chart title="APY" data="" />
+                    <Chart title="IL" data="" />
                 </div>
             </div>
         </article>

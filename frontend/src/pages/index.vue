@@ -1,6 +1,15 @@
 <script lang="ts" setup>
 import DataTable from '../components/DataTable.vue';
+import { useStore } from '../store/web3store';
 import { Header } from '../types';
+
+const store = useStore()
+store.$patch({
+    colors: {
+        primary: '#059669',
+        secondary: '#047857',
+    }
+})
 
 const headers: Header[] = [
     {
