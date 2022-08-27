@@ -1,4 +1,48 @@
 <script lang="ts" setup>
+import DataTable from '../components/DataTable.vue';
+import { Header } from '../types';
+
+const headers: Header[] = [
+    {
+        label: 'LP Token Pair',
+        key: 'name'
+    },
+    {
+        label: 'Chain',
+        key: 'chain'
+    },
+    {
+        label: 'APY',
+        key: 'apy'
+    },
+]
+
+const items = [
+    {
+        name: 'USDC-USDT',
+        token0: 'USDC',
+        token1: 'USDT',
+        chain: 137,
+        apy: 10,
+        exchange: 'SushiSwap'
+    },
+    {
+        name: 'WETH-USDC',
+        token0: 'WETH',
+        token1: 'USDC',
+        chain: 137,
+        apy: 23,
+        exchange: 'SushiSwap'
+    },
+    {
+        name: 'WETH-USDT',
+        token0: 'WETH',
+        token1: 'USDT',
+        chain: 56,
+        apy: 333,
+        exchange: 'PancakeSwap'
+    },
+]
 
 </script>
 
@@ -6,7 +50,7 @@
     <div class="p-5 w-full">
 
         <!-- Card Collection -->
-        <div class="md:(grid grid-cols-5 gap-5) mt-10 w-full">
+        <div class="md:(grid grid-cols-5 gap-5) mt-8 w-full">
             <div class="space-y-3 md:(col-span-2)">
                 <div class="info-card">
                     <h2 class="uppercase text-gray-400 text-xs font-bold">Last Indexed At</h2>
@@ -23,11 +67,15 @@
                 </div>
             </div>
             <div class="md:(col-span-3) info-card">
-                <h2 class="uppercase text-gray-400 text-xs font-bold">Total Indexed Value (TIL)</h2>
+                <h2 class="uppercase text-gray-400 text-xs font-bold">Total Value Value (TVI)</h2>
                 <p class="mt-1 text-3xl font-bold text-teal-400">$80.92B</p>
                 <!-- Graph here -->
             </div>
         </div>
+
+        <!-- Table -->
+        <h1 class="mt-6 font-bold text-xl">Top Liquidity Pools / Farms</h1>
+        <DataTable :items="items" :headers="headers" />
     </div>
 </template>
 

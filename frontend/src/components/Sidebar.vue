@@ -19,7 +19,7 @@
                 </li>
             </ul>
         </div>
-        <p class="text-xs text-gray-300 p-5">Team ZKMaxiz</p>
+        <p class="text-xs text-gray-300 p-5">Team ZKMaxiz &sdot; Unfold Hackathon </p>
     </nav>
 </template>
 
@@ -29,6 +29,6 @@ li a {
 }
 
 li a:hover {
-    @apply text-primary-500;
+    @apply text-gray-300;
 }
 </style>
