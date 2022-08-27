@@ -2,8 +2,12 @@ from django.db import models
 
 
 class Block(models.Model):
-    date = models.DateField(unique=True)
+    date = models.DateField()
+    chain_id = models.IntegerField()
     block_no = models.IntegerField()
+
+    class Meta:
+        unique_together = [['date', 'chain_id', 'block_no']]
 
     def __str__(self):
         return f"{self.date}: {self.block_no}"
