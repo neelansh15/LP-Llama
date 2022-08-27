@@ -16,9 +16,9 @@ Including another URLconf
 
 from django.conf.urls import include
 from django.contrib import admin
-from django.urls import path
+from django.urls import re_path
 
 urlpatterns = [
-    path(r'^api/', include('sdk.urls')),
-    path(r'^admin/', admin.site.urls),
+    re_path(r'^api/', include('lp_lama.urls')),
+    re_path(r'^admin/', admin.site.urls),
 ]
