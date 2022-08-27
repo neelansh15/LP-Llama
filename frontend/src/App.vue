@@ -1,13 +1,13 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import Navbar from './components/Navbar.vue';
+import Sidebar from './components/Sidebar.vue';
 </script>
 
 <template>
-  <div>
-    <navbar />
-    <router-view />
+  <div class="grid grid-cols-6 min-h-screen w-full text-white bg-dark-900">
+    <Sidebar class="col-span-1" />
+    <router-view class="col-span-5" />
   </div>
 </template>
 
