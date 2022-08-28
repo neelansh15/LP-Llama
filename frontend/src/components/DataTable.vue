@@ -4,6 +4,7 @@ import { getIconUrl } from '../utils';
 import SafeImage from './SafeImage.vue';
 import { chainTokens } from '../constants'
 import { useRouter } from 'vue-router';
+import { startCase } from 'lodash';
 
 defineProps<{
     headers: Header[],
@@ -21,24 +22,25 @@ const router = useRouter()
                     header.label.toUpperCase()
             }}</th>
         </tr>
-        <tr v-for="item in items" :key="item.name + item.exchange"
-            @click="router.push(`/${item.chain}/${item.exchange}/0x3041CbD36888bECc7bbCBc0045E3B1f144466f5f`)" class="cursor-pointer transition hover:bg-dark-500">
+        <tr v-for="(item, i) in items" :key="item.token0 ?? '' + item.token1 + item.exchange"
+            @click="router.push(`/${item.chain}/${item.exchange}/${i + 1}`)"
+            class="cursor-pointer transition hover:bg-dark-500">
             <td class="flex space-x-3 items-center">
                 <div class="flex -space-x-4">
                     <SafeImage :src="getIconUrl(item.token0)" class="w-7.5 h-7.5 mt-0.5" />
                     <SafeImage :src="getIconUrl(item.token1)" class="w-7.5 h-7.5 mt-0.5" />
                 </div>
                 <div>
-                    <h1 class="text-sm font-semibold">{{ item.name }}</h1>
-                    <h2 class="text-xs text-primary-300">{{ item.exchange }}</h2>
+                    <h1 class="text-sm font-semibold">{{ item.token0 }}-{{ item.token1 }}</h1>
+                    <h2 class="text-xs text-primary-300">{{ startCase(item.exchange) }}</h2>
                 </div>
             </td>
             <td>
                 <SafeImage :src="getIconUrl(chainTokens[item.chain])" class="w-8 h-8" />
             </td>
             <td>${{ item.tvl.toLocaleString('en-US') }}</td>
-            <td>{{ item.apy }}%</td>
-            <td>{{ item.il }}%</td>
+            <td>{{ item.apy.toLocaleString('en-US') }}%</td>
+            <td>{{ item.il.toLocaleString('en-US') }}%</td>
         </tr>
     </table>
 </template>

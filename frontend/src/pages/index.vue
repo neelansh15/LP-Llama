@@ -4,6 +4,7 @@ import { useStore } from '../store/web3store';
 import { Header } from '../types';
 import axios from 'axios'
 import { BASE_URL } from '../constants';
+import { onMounted, Ref, ref } from 'vue';
 
 const store = useStore()
 store.$patch({
@@ -13,25 +14,30 @@ store.$patch({
     }
 })
 
-// async function fetchData() {
-//     // await new Promise((res, rej) => setTimeout(res, 2000))
+const totalValueIndexed = ref(0)
 
-//     const { data, status } = await axios.get(BASE_URL + '/api/lp/?lp_id=3')
-//     console.log({ data })
-//     if (status === 200) {
-//         metadata.token0 = data.token0
-//         metadata.token1 = data.token1
-//         metadata.exchange = data.exchange
-//         metadata.tvl = data.tvl
-//         metadata.reserves0 = data.token_reserve0
-//         metadata.reserves1 = data.token_reserve1
-//         metadata.apy = data.apy[0].y[data.apy[0].y.length - 1]
+async function fetchData() {
+    for (let i = 1; i <= 10; i++) {
+        const { data, status } = await axios.get(BASE_URL + `/api/lp/?lp_id=${i}`)
+        if (status === 200) {
+            const metadata = {} as any
+            metadata.token0 = data.token0
+            metadata.token1 = data.token1
+            metadata.exchange = data.exchange
+            metadata.tvl = data.tvl
+            metadata.chain = data.chain_id
+            metadata.reserves0 = data.token_reserve0
+            metadata.reserves1 = data.token_reserve1
+            metadata.apy = data.apy[0].y[data.apy[0].y.length - 1]
+            metadata.il = data.il[0].y[data.il[0].y.length - 1]
+            items.value.push(metadata)
+            totalValueIndexed.value += data.tvl
+        }
+    }
 
-//         apyData.value = data.apy
-//         ilData.value = data.il
-//     }
+}
 
-// }
+onMounted(() => fetchData())
 
 
 const headers: Header[] = [
@@ -57,38 +63,38 @@ const headers: Header[] = [
     },
 ]
 
-const items = [
-    {
-        name: 'USDC-USDT',
-        token0: 'USDC',
-        token1: 'USDT',
-        chain: 137,
-        apy: 10,
-        il: 0.01,
-        tvl: 100_000,
-        exchange: 'SushiSwap',
-    },
-    {
-        name: 'WETH-USDC',
-        token0: 'WETH',
-        token1: 'USDC',
-        chain: 137,
-        apy: 23,
-        il: 2,
-        tvl: 100_120,
-        exchange: 'SushiSwap',
-    },
-    {
-        name: 'WETH-USDT',
-        token0: 'WETH',
-        token1: 'USDT',
-        chain: 56,
-        apy: 13,
-        il: 2.01,
-        tvl: 9_149,
-        exchange: 'PancakeSwap',
-    },
-]
+const items: Ref<any[]> = ref([
+    // {
+    //     name: 'USDC-USDT',
+    //     token0: 'USDC',
+    //     token1: 'USDT',
+    //     chain: 137,
+    //     apy: 10,
+    //     il: 0.01,
+    //     tvl: 100_000,
+    //     exchange: 'SushiSwap',
+    // },
+    // {
+    //     name: 'WETH-USDC',
+    //     token0: 'WETH',
+    //     token1: 'USDC',
+    //     chain: 137,
+    //     apy: 23,
+    //     il: 2,
+    //     tvl: 100_120,
+    //     exchange: 'SushiSwap',
+    // },
+    // {
+    //     name: 'WETH-USDT',
+    //     token0: 'WETH',
+    //     token1: 'USDT',
+    //     chain: 56,
+    //     apy: 13,
+    //     il: 2.01,
+    //     tvl: 9_149,
+    //     exchange: 'PancakeSwap',
+    // },
+])
 
 </script>
 
@@ -109,12 +115,12 @@ const items = [
                 </div>
                 <div class="info-card">
                     <h2 class="uppercase text-gray-400 text-xs font-bold">Total LPs Indexed</h2>
-                    <p class="mt-1 text-2xl font-bold">3</p>
+                    <p class="mt-1 text-2xl font-bold">4</p>
                 </div>
             </div>
             <div class="md:(col-span-3) info-card">
                 <h2 class="uppercase text-gray-400 text-xs font-bold">Total Value Indexed (TVI)</h2>
-                <p class="mt-1 text-4xl font-bold text-teal-400">$209k</p>
+                <p class="mt-1 text-4xl font-bold text-teal-400">${{ totalValueIndexed.toLocaleString('en-US') }}</p>
                 <!-- Graph here -->
             </div>
         </div>

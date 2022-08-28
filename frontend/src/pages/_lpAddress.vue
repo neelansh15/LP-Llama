@@ -40,7 +40,7 @@ async function fetchData() {
     isLoading.value = true
     // await new Promise((res, rej) => setTimeout(res, 2000))
 
-    const { data, status } = await axios.get(BASE_URL + '/api/lp/?lp_id=3')
+    const { data, status } = await axios.get(BASE_URL + `/api/lp/?lp_id=${lpAddress}`)
     console.log({ data })
     if (status === 200) {
         metadata.token0 = data.token0
