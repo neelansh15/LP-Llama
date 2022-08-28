@@ -2,6 +2,7 @@
 import { computed } from '@vue/reactivity';
 import ApexCharts, { ApexOptions } from 'apexcharts'
 import { onMounted, reactive, ref, watch } from 'vue';
+import { chainTokens } from '../constants';
 import { useStore } from '../store/web3store';
 
 const props = defineProps<{
@@ -53,8 +54,14 @@ watch(colors, async (newColors) => {
 })
 
 watch(activeData, async (newData) => {
-    chart.value = new ApexCharts(element.value, { ...options, series: [{ name: props.title, data: newData.value.y }], xaxis: { categories: newData.value.x } })
-    await chart.value.render()
+    chart.value?.updateSeries([{
+        data: activeData.value.y
+    }])
+    chart.value?.updateOptions({
+        xaxis: {
+            categories: activeData.value.x
+        }
+    })
 })
 
 </script>
