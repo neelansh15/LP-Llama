@@ -1,5 +1,5 @@
 import logging
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from lp_lama.analytics.common.rpc_networks import get_rpc_network
 from lp_lama.models import Block
@@ -26,6 +26,12 @@ class BlockTimestamp:
             start_block_no = _start_block_no
         else:
             start_block_no = block.block_no
+        # curr_date = datetime.now().date()
+        # start_block_date = datetime.fromtimestamp(self.w3.eth.getBlock(start_block_no).timestamp).date()
+        # if (curr_date - start_block_date) > timedelta(days=1):
+        #     block_no = start_block_no + self.block_no_skip
+        # else:
+        #     block_no = start_block_no
         block_no = start_block_no + self.block_no_skip
         visited_block_date = set()
         block_date = datetime.fromtimestamp(self.w3.eth.getBlock(block_no).timestamp).date()
@@ -45,6 +51,7 @@ class BlockTimestamp:
                 Block.objects.create(date=block_date, chain_id=self.chain_id, block_no=block_no)
                 visited_block_date.add(block_date_str)
                 logger.info(f"Added {block_datetime=} for {block_no=}")
+                # if (curr_date - block_date) > timedelta(days=1):
                 block_no += self.block_no_skip
             else:
                 logger.info(f"Not Added {block_datetime=} for {block_no=}")
