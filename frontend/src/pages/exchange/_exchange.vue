@@ -4,7 +4,7 @@ import SafeImage from '../../components/SafeImage.vue';
 import { startCase } from 'lodash'
 import { useStore } from '../../store/web3store';
 import { getIconUrl, rgbToHex } from '../../utils';
-import { chainTokens, chainNames } from '../../constants';
+import { chainTokens, chainNames, exchangeLogos } from '../../constants';
 
 // @ts-ignore
 import ColorThief from 'colorthief'
@@ -102,9 +102,9 @@ function getDominantColor() {
 <template>
     <div class="p-5 px-10 pt-14">
         <header class="flex items-center space-x-2">
-            <img :src="data.imageUrl" @load="getDominantColor" class="hidden w-1 h-1" ref="image"
-                crossorigin="anonymous" />
-            <SafeImage :src="data.imageUrl" class="w-12 h-12 rounded-full" />
+            <img :src="exchangeLogos[exchange.toString().toLowerCase()]" @load="getDominantColor" class="hidden w-1 h-1"
+                ref="image" crossorigin="anonymous" />
+            <SafeImage :src="exchangeLogos[exchange.toString().toLowerCase()]" class="w-12 h-12 rounded-full" />
             <div class="space-y-0.5">
                 <h1 class="font-bold text-lg">{{ startCase(exchange.toString()).replace(" ", "") }}</h1>
                 <div class="text-sm text-gray-300 flex space-x-1">
