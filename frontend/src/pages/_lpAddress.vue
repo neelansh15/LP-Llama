@@ -29,10 +29,12 @@ const data = reactive({
 })
 
 async function fetchData() {
-    isLoading.value = true
-    console.log({ chainId, lpAddress })
-    isLoading.value = false
+    // isLoading.value = true
+    await new Promise((res, rej) => setTimeout(res, 2000))
+    // isLoading.value = false
 }
+
+onMounted(() => fetchData())
 
 function getDominantColor() {
     // Analyze dominant color
@@ -51,7 +53,19 @@ function getDominantColor() {
 </script>
 
 <template>
-    <div class="p-5 px-10 pt-14">
+    <div v-if="isLoading" class="mx-auto my-auto">
+
+        <div class="bg-black flex  rounded-lg">
+            <div>
+                <img src="https://c.tenor.com/meaVSqgv9hoAAAAM/llama-hair.gif" alt="Llama running in slow motion"
+                    class="rounded-l-lg" />
+            </div>
+            <div class="p-4">
+                <h1>Loading...</h1>
+            </div>
+        </div>
+    </div>
+    <div v-else class="p-5 px-10 pt-14">
         <header class="flex justify-between items-center pl-4">
             <div class="flex items-center space-x-2.5">
                 <div class="flex -space-x-4">
