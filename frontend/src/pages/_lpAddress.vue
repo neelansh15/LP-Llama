@@ -31,7 +31,7 @@ const data = reactive({
 
 async function fetchData() {
     isLoading.value = true
-    await new Promise((res, rej) => setTimeout(res, 2000))
+    // await new Promise((res, rej) => setTimeout(res, 2000))
     isLoading.value = false
 }
 
