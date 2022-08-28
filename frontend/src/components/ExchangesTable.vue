@@ -28,15 +28,15 @@ const items: any = [
     {
         name: 'SushiSwap',
         imageUrl: 'https://sushi.com/_next/static/media/logo.d019d88b.png',
-        lp_indexed: 34,
-        tvi: 1000,
+        lp_indexed: 2,
+        tvi: 204_831,
         chains: [137, 1, 56]
     },
     {
         name: 'PancakeSwap',
         imageUrl: 'https://www.gitbook.com/cdn-cgi/image/width=40,height=40,fit=contain,dpr=2,format=auto/https%3A%2F%2F1397868517-files.gitbook.io%2F~%2Ffiles%2Fv0%2Fb%2Fgitbook-legacy-files%2Fo%2Fspaces%252F-MHREX7DHcljbY5IkjgJ%252Favatar-1602750187173.png%3Fgeneration%3D1602750187468978%26alt%3Dmedia',
-        lp_indexed: 34,
-        tvi: 1000,
+        lp_indexed: 1,
+        tvi: 9004,
         chains: [56]
     },
 ]

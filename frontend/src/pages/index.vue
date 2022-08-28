@@ -2,6 +2,8 @@
 import DataTable from '../components/DataTable.vue';
 import { useStore } from '../store/web3store';
 import { Header } from '../types';
+import axios from 'axios'
+import { BASE_URL } from '../constants';
 
 const store = useStore()
 store.$patch({
@@ -10,6 +12,27 @@ store.$patch({
         secondary: '#047857',
     }
 })
+
+// async function fetchData() {
+//     // await new Promise((res, rej) => setTimeout(res, 2000))
+
+//     const { data, status } = await axios.get(BASE_URL + '/api/lp/?lp_id=3')
+//     console.log({ data })
+//     if (status === 200) {
+//         metadata.token0 = data.token0
+//         metadata.token1 = data.token1
+//         metadata.exchange = data.exchange
+//         metadata.tvl = data.tvl
+//         metadata.reserves0 = data.token_reserve0
+//         metadata.reserves1 = data.token_reserve1
+//         metadata.apy = data.apy[0].y[data.apy[0].y.length - 1]
+
+//         apyData.value = data.apy
+//         ilData.value = data.il
+//     }
+
+// }
+
 
 const headers: Header[] = [
     {
@@ -41,7 +64,7 @@ const items = [
         token1: 'USDT',
         chain: 137,
         apy: 10,
-        il: 10,
+        il: 0.01,
         tvl: 100_000,
         exchange: 'SushiSwap',
     },
@@ -51,7 +74,7 @@ const items = [
         token1: 'USDC',
         chain: 137,
         apy: 23,
-        il: 8,
+        il: 2,
         tvl: 100_120,
         exchange: 'SushiSwap',
     },
@@ -60,8 +83,8 @@ const items = [
         token0: 'WETH',
         token1: 'USDT',
         chain: 56,
-        apy: 333,
-        il: 2,
+        apy: 13,
+        il: 2.01,
         tvl: 9_149,
         exchange: 'PancakeSwap',
     },
@@ -77,21 +100,21 @@ const items = [
             <div class="space-y-3 md:(col-span-2)">
                 <div class="info-card">
                     <h2 class="uppercase text-gray-400 text-xs font-bold">Last Indexed At</h2>
-                    <p class="mt-1 text-2xl font-bold">27th August 2022</p>
+                    <p class="mt-1 text-2xl font-bold">28th August 2022</p>
                 </div>
                 <div class="info-card">
                     <h2 class="uppercase text-gray-400 text-xs font-bold">Total Chains Indexed</h2>
-                    <p class="mt-1 text-2xl font-bold">5</p>
+                    <p class="mt-1 text-2xl font-bold">2</p>
                     <!-- Use chain icons here later -->
                 </div>
                 <div class="info-card">
                     <h2 class="uppercase text-gray-400 text-xs font-bold">Total LPs Indexed</h2>
-                    <p class="mt-1 text-2xl font-bold">430</p>
+                    <p class="mt-1 text-2xl font-bold">3</p>
                 </div>
             </div>
             <div class="md:(col-span-3) info-card">
                 <h2 class="uppercase text-gray-400 text-xs font-bold">Total Value Indexed (TVI)</h2>
-                <p class="mt-1 text-3xl font-bold text-teal-400">$80.92B</p>
+                <p class="mt-1 text-4xl font-bold text-teal-400">$209k</p>
                 <!-- Graph here -->
             </div>
         </div>

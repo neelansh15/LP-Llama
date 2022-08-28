@@ -21,6 +21,7 @@ const token0Image = ref(null)
 const isLoading = ref(true)
 
 const apyData = ref([])
+const ilData = ref([])
 
 const route = useRoute()
 const { chainId, lpAddress } = route.params
@@ -51,6 +52,7 @@ async function fetchData() {
         metadata.apy = data.apy[0].y[data.apy[0].y.length - 1]
 
         apyData.value = data.apy
+        ilData.value = data.il
     }
 
     isLoading.value = false
@@ -134,7 +136,7 @@ function getDominantColor() {
             <div class="mt-8">
                 <div class="md:(grid grid-cols-2) gap-4">
                     <Chart title="APY" :data="apyData" />
-                    <Chart title="IL" label="Impermanant Loss" :data="apyData" />
+                    <Chart title="IL" label="Impermanant Loss" :data="ilData" />
                 </div>
             </div>
         </article>
