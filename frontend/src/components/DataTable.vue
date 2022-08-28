@@ -36,7 +36,7 @@ const router = useRouter()
             <td>
                 <SafeImage :src="getIconUrl(chainTokens[item.chain])" class="w-8 h-8" />
             </td>
-            <td>${{ item.tvl }}</td>
+            <td>${{ item.tvl.toLocaleString('en-US') }}</td>
             <td>{{ item.apy }}%</td>
             <td>{{ item.il }}%</td>
         </tr>

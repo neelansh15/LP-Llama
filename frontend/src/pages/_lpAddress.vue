@@ -52,7 +52,7 @@ function getDominantColor() {
 
 <template>
     <div class="p-5 px-10 pt-14">
-        <header class="flex justify-between items-center">
+        <header class="flex justify-between items-center pl-4">
             <div class="flex items-center space-x-2.5">
                 <div class="flex -space-x-4">
                     <img :src="getIconUrl(data.token0)" @load="getDominantColor" class="hidden w-1 h-1"
