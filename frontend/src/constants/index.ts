@@ -1,4 +1,4 @@
-export const BASE_URL = "https://polite-kids-repeat-115-110-248-75.loca.lt";
+export const BASE_URL = "https://sharp-geese-cry-115-110-248-75.loca.lt/";
 
 export const chainTokens = {
   1: "eth",

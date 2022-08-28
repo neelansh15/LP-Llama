@@ -27,16 +27,16 @@ const headers: Header[] = [
 const items: any = [
     {
         chainId: 137,
-        lp_indexed: 34,
+        lp_indexed: 2,
         apy: 97,
-        tvi: 1000,
+        tvi: 3_000_000,
         exchanges: ['sushiswap']
     },
     {
         chainId: 56,
-        lp_indexed: 34,
+        lp_indexed: 1,
         apy: 56,
-        tvi: 1000,
+        tvi: 9000,
         exchanges: ['pancakeswap', 'sushiswap']
     },
 ]

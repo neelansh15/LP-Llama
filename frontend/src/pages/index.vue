@@ -17,7 +17,7 @@ store.$patch({
 const totalValueIndexed = ref(0)
 
 async function fetchData() {
-    for (let i = 1; i <= 10; i++) {
+    for (let i = 1; i <= 4; i++) {
         const { data, status } = await axios.get(BASE_URL + `/api/lp/?lp_id=${i}`)
         if (status === 200) {
             const metadata = {} as any
@@ -28,7 +28,7 @@ async function fetchData() {
             metadata.chain = data.chain_id
             metadata.reserves0 = data.token_reserve0
             metadata.reserves1 = data.token_reserve1
-            metadata.apy = data.apy[0].y[data.apy[0].y.length - 1]
+            metadata.apy = data.apy[0].y[data.apy[0].y.length - 1] * 365 / 7
             metadata.il = data.il[0].y[data.il[0].y.length - 1]
             items.value.push(metadata)
             totalValueIndexed.value += data.tvl
