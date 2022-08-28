@@ -1,0 +1,4 @@
+**/__pycache__/
+sdk/migrations/
+.idea
+secrets.yaml
