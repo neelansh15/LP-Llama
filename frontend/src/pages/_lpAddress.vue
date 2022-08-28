@@ -10,6 +10,7 @@ import { useStore } from '../store/web3store';
 // @ts-ignore
 import ColorThief from 'colorthief'
 import { storeToRefs } from 'pinia';
+import Loader from '../components/Loader.vue';
 
 const store = useStore()
 const { colors } = storeToRefs(store)
@@ -29,9 +30,9 @@ const data = reactive({
 })
 
 async function fetchData() {
-    // isLoading.value = true
+    isLoading.value = true
     await new Promise((res, rej) => setTimeout(res, 2000))
-    // isLoading.value = false
+    isLoading.value = false
 }
 
 onMounted(() => fetchData())
@@ -53,18 +54,7 @@ function getDominantColor() {
 </script>
 
 <template>
-    <div v-if="isLoading" class="mx-auto my-auto">
-
-        <div class="bg-black flex  rounded-lg">
-            <div>
-                <img src="https://c.tenor.com/meaVSqgv9hoAAAAM/llama-hair.gif" alt="Llama running in slow motion"
-                    class="rounded-l-lg" />
-            </div>
-            <div class="p-4">
-                <h1>Loading...</h1>
-            </div>
-        </div>
-    </div>
+    <Loader v-if="isLoading" />
     <div v-else class="p-5 px-10 pt-14">
         <header class="flex justify-between items-center pl-4">
             <div class="flex items-center space-x-2.5">
