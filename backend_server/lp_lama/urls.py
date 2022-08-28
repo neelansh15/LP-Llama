@@ -13,4 +13,5 @@ urlpatterns = [
     re_path(r'^docs/', schema_view),
     re_path(r'^', include(router.urls)),
     re_path(r'^store_date_to_block/', views.store_date_to_block, name='Store date to block number'),
+    re_path(r'^store_lp_reward_details/', views.store_lp_reward_details, name='Store LP reward details'),
 ]

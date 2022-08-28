@@ -19,20 +19,24 @@ class Block(models.Model):
 
 
 class Exchange(models.Model):
-    name = models.CharField(max_length=100, unique=True)
-    total_lps = models.IntegerField()
-    chain_ids = models.TextField()
+    name = models.CharField(max_length=100, db_index=True)
+    address = models.CharField(max_length=50)
+    reward_address = models.CharField(max_length=50)
+    chain_id = models.IntegerField()
+
+    class Meta:
+        unique_together = [['address', 'chain_id']]
 
     def __str__(self):
-        return f"{self.name}, {self.chain_ids}"
+        return f"{self.name}, {self.chain_id}"
 
 
 class Lp(models.Model):
-    address = models.CharField(max_length=50, unique=True)
+    address = models.CharField(max_length=50, db_index=True)
     exchange = models.ForeignKey(Exchange, on_delete=models.CASCADE)
+    pool_id = models.IntegerField()
     token0 = models.CharField(max_length=50)
     token1 = models.CharField(max_length=50)
-    chain_ids = models.TextField()
     tvl = models.IntegerField()
 
     def __str__(self):
