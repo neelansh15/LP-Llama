@@ -1,9 +1,13 @@
 import requests
+import yaml
+from yaml import SafeLoader
 
 
 class Covalent:
     def __init__(self, chain_id=137):
-        self.api_key = 'ckey_09cd45e4ba81458ebe96052a603'
+        with open('secrets.yaml') as f:
+            secrets = yaml.load(f, Loader=SafeLoader)
+        self.api_key = secrets["COVALENT"]["API_KEY"],
         self.base_url = 'https://api.covalenthq.com/v1/'
         self.session = requests.session()
         self.chain_id = chain_id

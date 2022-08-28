@@ -49,7 +49,7 @@ class AbstractExchange(AbstractContract):
         reserve1 = _reserve1 / (10 ** token1_decimal)
 
         lp_price = (lp_token0_price * reserve0) + (lp_token1_price * reserve1)
-        return lp_price, reserve0, reserve1
+        return lp_price, reserve0, reserve1, lp_token0_price, lp_token1_price
 
     def get_lp_reward_details_on_block(self, pool_id, block_no):
         _reward = self.get_pool_info(pool_id, block_no)
@@ -61,8 +61,8 @@ class AbstractExchange(AbstractContract):
 
         lp_supply = self.lp_address(pool_id).contract.functions.balanceOf(self.ADDRESS).call(
             block_identifier=block_no)
-        lp_price, reserve0, reserve1 = self.get_tvl(pool_id, block_no)
-        return reward, reward_price, lp_supply, lp_price, reserve0, reserve1
+        lp_price, reserve0, reserve1, lp_token0_price, lp_token1_price = self.get_tvl(pool_id, block_no)
+        return reward, reward_price, lp_supply, lp_price, reserve0, reserve1, lp_token0_price, lp_token1_price
 
     def get_reward_earned_between_blocks(self, pool_id, start_block, end_block):
         start_reward = self.get_pool_info(pool_id, start_block)

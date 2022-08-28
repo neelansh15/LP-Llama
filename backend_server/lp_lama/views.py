@@ -44,5 +44,4 @@ def lp(request):
     lp_id = int(request.query_params['lp_id'])
     logger.info(f"In lp: {lp_id=}")
     lp_details = get_lp_details(lp_id)
-    breakpoint()
     return Response(status=status.HTTP_200_OK, data=lp_details)
