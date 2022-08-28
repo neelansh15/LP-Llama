@@ -1,3 +1,5 @@
+export const BASE_URL = "https://polite-kids-repeat-115-110-248-75.loca.lt";
+
 export const chainTokens = {
   1: "eth",
   137: "matic",
@@ -28,4 +30,4 @@ export const exchangeLogos = {
   sushiswap: "https://sushi.com/_next/static/media/logo.d019d88b.png",
   pancakeswap:
     "https://pancakeswap.finance/images/tokens/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82.png",
-} as Record<string, string>
+} as Record<string, string>;

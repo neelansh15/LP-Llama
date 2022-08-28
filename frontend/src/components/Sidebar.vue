@@ -9,7 +9,7 @@ const router = useRouter()
 
 <template>
     <!-- bg-gradient-to-b from-primary-600 to-primary-700 -->
-    <nav class="flex flex-col justify-between h-full rounded-lg" :style="{
+    <nav class="flex flex-col justify-between h-screen rounded-lg" :style="{
         background: `linear-gradient(to bottom, ${colors.primary}, ${colors.secondary}), #000`,
     }">
         <div class="space-y-8">
@@ -57,9 +57,9 @@ const router = useRouter()
 
                     </router-link>
                 </li>
-                <li>
+                <!-- <li>
                     <router-link to="/1/sushiswap/0x3041CbD36888bECc7bbCBc0045E3B1f144466f5f">Test</router-link>
-                </li>
+                </li> -->
             </ul>
         </div>
         <div class="mt-auto pt-6 border-t" :style="{

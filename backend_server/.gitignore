@@ -2,3 +2,4 @@
 sdk/migrations/
 .idea
 secrets.yaml
+venv

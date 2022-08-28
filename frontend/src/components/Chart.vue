@@ -28,11 +28,11 @@ const options: ApexOptions = reactive({
     series: [
         {
             name: props.title,
-            data: [30, 40, 35, 50, 49, 60, 70, 91, 125],
+            data: activeData.value.y,
         }
     ],
     xaxis: {
-        categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999]
+        categories: activeData.value.x
     },
     grid: {
         borderColor: '#222',
@@ -49,6 +49,11 @@ watch(colors, async (newColors) => {
     if (!chart.value)
         return
     chart.value = new ApexCharts(element.value, { ...options, colors: [newColors.primary, newColors.secondary, newColors.tertiary] })
+    await chart.value.render()
+})
+
+watch(activeData, async (newData) => {
+    chart.value = new ApexCharts(element.value, { ...options, series: [{ name: props.title, data: newData.value.y }], xaxis: { categories: newData.value.x } })
     await chart.value.render()
 })
 
