@@ -61,8 +61,8 @@ const router = useRouter()
             <td>${{ item.tvi }}</td>
             <td class="flex space-x-1">
                 <SafeImage v-for="chainId in item.chains" :key="chainId" :src="getIconUrl(chainTokens[chainId])"
-                    class="w-8 h-8 cursor-pointer"
-                    @click="router.push(`/${chainId}/sushiswap`)" />
+                    class="w-8 h-8 cursor-pointer transition hover:(transform -translate-y-0.5)"
+                    @click="router.push(`/${chainId}/${item.name}`)" />
             </td>
         </tr>
     </table>

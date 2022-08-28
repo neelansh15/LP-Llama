@@ -4,6 +4,12 @@ export const chainTokens = {
   56: "bnb",
 } as Record<number, string>;
 
+export const chainNames = {
+  1: 'Ethereum',
+  137: "Polygon",
+  56: "Binance Smart Chain",
+} as Record<number, string>;
+
 export const explorerUrls = {
   1: "https://etherscan.io",
   4: "https://rinkeby.etherscan.io",

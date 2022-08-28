@@ -7,6 +7,7 @@ export interface Item {
   exchange: string;
   il: number;
   tvl: number;
+  lpAddress?: string;
 }
 
 export interface Header {

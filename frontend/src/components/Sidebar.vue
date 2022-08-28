@@ -1,7 +1,9 @@
 <script lang="ts" setup>
+import { useRouter } from 'vue-router';
 import { useStore } from '../store/web3store';
 
 const { colors } = useStore()
+const router = useRouter()
 
 </script>
 
@@ -14,7 +16,7 @@ const { colors } = useStore()
             <div class="border-b p-5" :style="{
                 borderColor: colors.secondary + '49',
             }">
-                <h1 class="text-xl font-bold">
+                <h1 class="text-xl font-bold cursor-pointer" @click="router.push('/')">
                     LP Llama
                 </h1>
             </div>
