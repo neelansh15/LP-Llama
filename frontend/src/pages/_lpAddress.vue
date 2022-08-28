@@ -106,7 +106,7 @@ function getDominantColor() {
             <div class="mt-8">
                 <div class="md:(grid grid-cols-2) gap-4">
                     <Chart title="APY" data="" />
-                    <Chart title="IL" data="" />
+                    <Chart title="IL" label="Impermanant Loss" data="" />
                 </div>
             </div>
         </article>

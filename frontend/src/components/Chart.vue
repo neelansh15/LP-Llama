@@ -5,6 +5,7 @@ import { useStore } from '../store/web3store';
 
 const props = defineProps<{
     title: string
+    label?: string
     data: any
 }>()
 
@@ -49,7 +50,7 @@ watch(colors, async (newColors) => {
 
 <template>
     <div class="bg-dark-900 border border-dark-300 p-5 rounded-lg">
-        <h3 class="text-gray-400 text-sm font-bold">{{ title }}</h3>
+        <h3 class="text-gray-400 text-sm font-bold">{{ label ?? title }}</h3>
         <div ref="element"></div>
     </div>
 </template>
