@@ -28,7 +28,7 @@ with open('secrets.yaml') as f:
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-u+x8pxl(4m=yjbktqsh42w)6dd8n$k@)jrp5d$o7djab*!jz*&'
+secrets['DJANGO']['SECRET_KEY'] = 'django-insecure-u+x8pxl(4m=yjbktqsh42w)6dd8n$k@)jrp5d$o7djab*!jz*&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'lp_lama',
     'rest_framework',
     'rest_framework_swagger',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -60,7 +61,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ALLOW_HEADERS = default_headers + (
     'pragma',

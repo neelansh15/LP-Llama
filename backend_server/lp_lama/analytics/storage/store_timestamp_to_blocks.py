@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 
 class BlockTimestamp:
-    def __init__(self, chain_id, block_no_skip=1500*25):
+    def __init__(self, chain_id, block_no_skip=1050*25):
         self.chain_id = chain_id
         self.block_no_skip = block_no_skip
         self._w3 = None
@@ -55,6 +55,6 @@ class BlockTimestamp:
                 block_no += self.block_no_skip
             else:
                 logger.info(f"Not Added {block_datetime=} for {block_no=}")
-            block_no += 30
+            block_no += 20
             block_datetime = datetime.fromtimestamp(self.w3.eth.getBlock(block_no).timestamp)
             block_date = block_datetime.date()
