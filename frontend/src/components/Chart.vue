@@ -49,11 +49,14 @@ onMounted(() => {
 watch(colors, async (newColors) => {
     if (!chart.value)
         return
-    chart.value = new ApexCharts(element.value, { ...options, colors: [newColors.primary, newColors.secondary, newColors.tertiary] })
-    await chart.value.render()
+    // chart.value = new ApexCharts(element.value, { ...options, colors: [newColors.primary, newColors.secondary, newColors.tertiary] })
+    // await chart.value.render()
+    chart.value.updateOptions({
+        colors: [newColors.primary, newColors.secondary, newColors.tertiary]
+    })
 })
 
-watch(activeData, async (newData) => {
+watch(activeData, async () => {
     chart.value?.updateSeries([{
         data: activeData.value.y
     }])
